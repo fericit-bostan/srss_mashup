@@ -17,3 +17,8 @@ All embedded spaces must be replaced with a '+' character.
 
 Upon invocation, the address will be sent to the Google Maps API where the geo coordinates will be retrieved. After which, the coordinates will then be passed to the EarthTools API where the sunrise and sunset times are retrieved. The results will be returned to the client as JSON outputing the requested address, the geo coordinates and the times of the sunrise and sunset for the supplied location (show in local time)
 
+
+
+The project was created using AnyPoint Studio and can simply be imported as an existing project. 
+
+To run the project, simply right click on the address_mashup.xml file and select Run As... Mule Application
