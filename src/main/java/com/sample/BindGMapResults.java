@@ -1,3 +1,7 @@
+/*
+ *  BindGMapResults.java
+ *  Created by Christopher Mathrusse on 01/26/15.
+ */
 package com.sample;
 
 import java.util.Map;
@@ -14,6 +18,9 @@ public class BindGMapResults implements org.mule.api.lifecycle.Callable,
 	@SuppressWarnings("unused")
 	private MuleContext context;
 
+	/* (non-Javadoc)
+	 * @see org.mule.api.lifecycle.Callable#onCall(org.mule.api.MuleEventContext)
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
 	@Override
 	public Object onCall(MuleEventContext eventContext) throws Exception {
@@ -21,26 +28,25 @@ public class BindGMapResults implements org.mule.api.lifecycle.Callable,
 
 		Map payload = (Map) message.getPayload();
 		Map geometry = (Map) payload.get(Constants.PAYLOAD_GEOMETRY_KEY);
-		Map<String, String> location = (Map<String, String>) geometry
-				.get(Constants.PAYLOAD_LOCATION_KEY);
+		Map<String, String> location = (Map<String, String>) geometry.get(Constants.PAYLOAD_LOCATION_KEY);
 
-		String longitude = (String) location
-				.get(Constants.PAYLOAD_LONGITUDE_KEY);
+		String longitude = (String) location.get(Constants.PAYLOAD_LONGITUDE_KEY);
 		String latitude = (String) location.get(Constants.PAYLOAD_LATITUDE_KEY);
 
 		message.setSessionProperty(Constants.SESSION_LONGITUDE_KEY, longitude);
 		message.setSessionProperty(Constants.SESSION_LATITUDE_KEY, latitude);
-		message.setSessionProperty(Constants.SESSION_TIMEZON_LOCATION_KEY,
-				latitude + "," + longitude);
+		message.setSessionProperty(Constants.SESSION_TIMEZON_LOCATION_KEY, latitude + "," + longitude);
 
-		String requestedAddress = (String) payload
-				.get(Constants.PAYLOAD_FORMATTED_ADDRESS_KEY);
-		message.setSessionProperty(Constants.SESSION_REQUESTED_ADDRESS_KEY,requestedAddress);
+		String requestedAddress = (String) payload.get(Constants.PAYLOAD_FORMATTED_ADDRESS_KEY);
+		message.setSessionProperty(Constants.SESSION_REQUESTED_ADDRESS_KEY, requestedAddress);
 
 		message.setPayload(null);
 		return message.getPayload();
 	}
 
+	/* (non-Javadoc)
+	 * @see org.mule.api.context.MuleContextAware#setMuleContext(org.mule.api.MuleContext)
+	 */
 	@Override
 	public void setMuleContext(MuleContext context) {
 		this.context = context;
