@@ -1,5 +1,4 @@
 # srss_mashup
-# author: Christopher Mathrusse
 
 A Mashup of Google Maps and Earthtools web services deployed to a MuleSoft server.
 
