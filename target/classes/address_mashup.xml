@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081"  doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="Earthtools_API" host="www.earthtools.org" port="80" doc:name="HTTP Request Configuration"/>
+    <http:request-config name="Googl_Maps_API" host="maps.googleapis.com" port="80" doc:name="HTTP Request Configuration"/>
+    <data-mapper:config name="earthtools_XML_to_Map" transformationGraphPath="earthtools_xml_to_map.grf" doc:name="earthtools_XML_to_Map"/>
+    <data-mapper:config name="Gmap_XML_to_Map" transformationGraphPath="gmap_xml_to_map.grf" doc:name="Gmap_XML_to_Map"/>
+    <http:request-config name="SSL_Google_Maps_API" protocol="HTTPS" host="maps.googleapis.com" port="443" doc:name="HTTP Request Configuration"/>
+    <flow name="show-sunrise-sunset">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/getTimesForAddress" doc:name="HTTP"/>
+        <http:request config-ref="Googl_Maps_API" path="/maps/api/geocode/json" method="GET" doc:name="Google Maps API">
+            <http:request-builder>
+                <http:query-param paramName="address" value="#[message.inboundProperties.'http.query.params'.address]"/>
+            </http:request-builder>
+        </http:request>
+        <json:json-to-xml-transformer doc:name="JSON to XML"/>
+        <data-mapper:transform config-ref="Gmap_XML_to_Map" doc:name="Gmap XML to Map"/>
+        <component class="com.sample.BindGMapResults" doc:name="Bind Gmap Results"/>
+        <http:request config-ref="Earthtools_API" path="/sun/#[sessionVars.latitude]/#[sessionVars.longitude]/#[server.dateTime.dayOfMonth]/#[server.dateTime.month]/99/0" method="GET" doc:name="Sunrise Sunset API"/>
+        <data-mapper:transform config-ref="earthtools_XML_to_Map" doc:name="earthtools XML to Map"/>
+        <component class="com.sample.UpdatePayload" doc:name="Update Payload"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>

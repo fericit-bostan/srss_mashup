@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="cmathrusse" created="Mon Feb 02 10:44:12 PST 2015" description="Gmap XML to Map" guiVersion="3.4.4.P" id="1422903198141" licenseCode="Unlicensed" licenseType="Unknown" modified="Mon Feb 02 10:44:12 PST 2015" modifiedBy="cmathrusse" name="Gmap_XML_to_Map" preview-file="/Users/cmathrusse/Desktop/google-maps-results.xml" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __schemaType="address_componentsType" __sourcePath="{}/results/address_components" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="ef5b1f5d-43da-43dc-aa65-a70cd55b0a12" _parent_id="__parent_id" _type="Input" id="a1901df2-f360-43bd-88e0-b0f790361cb8">
+<Record fieldDelimiter="," name="address_components" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __schemaType="address_componentsType" __sourcePath="{}/results/address_components/long_name" containerType="SINGLE" label="long_name" name="long_name" type="string"/>
+<Field __index="1" __schemaType="address_componentsType" __sourcePath="{}/results/address_components/short_name" containerType="SINGLE" label="short_name" name="short_name" type="string"/>
+<Field __index="2" __schemaType="address_componentsType" __sourcePath="{}/results/address_components/types" containerType="list" label="types" name="types" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="9" __referenceCounter="1" __sourcePath="{}/results/address_x005fcomponents" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="77ddd20f-cf20-4422-b251-66a604d05fa0" _parent_id="__parent_id" _type="Output" id="edc4f6a6-b2a9-49dc-b367-a81c3ec2b657">
+<Record fieldDelimiter="," name="address_components" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
+<Field __index="9" __sourcePath="{}/results/address_x005fcomponents/long_x005fname" containerType="SINGLE" label="long_name" name="long_name" type="string"/>
+<Field __index="10" __sourcePath="{}/results/address_x005fcomponents/short_x005fname" containerType="SINGLE" label="short_name" name="short_name" type="string"/>
+<Field __index="11" __sourcePath="{}/results/address_x005fcomponents/types" containerType="list" label="types" name="types" type="string"/>
+</Record>
+</Metadata>
+<Metadata __filteredMetadata="false" __index="0" __referenceCounter="1" __schemaType="resultsType" __sourcePath="{}/results" _dataStructure="OBJECT" _id="__id" _type="Input" id="ef5b1f5d-43da-43dc-aa65-a70cd55b0a12">
+<Record fieldDelimiter="," name="results" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="3" __schemaType="resultsType" __sourcePath="{}/results/formatted_address" containerType="SINGLE" label="formatted_address" name="formatted_address" type="string"/>
+<Field __index="4" __schemaType="locationType" __sourcePath="{}/results/geometry/location/lat" containerType="SINGLE" label="lat" name="lat" type="number"/>
+<Field __index="5" __schemaType="locationType" __sourcePath="{}/results/geometry/location/lng" containerType="SINGLE" label="lng" name="lng" type="number"/>
+<Field __index="6" __schemaType="geometryType" __sourcePath="{}/results/geometry/location_type" containerType="SINGLE" label="location_type" name="location_type" type="string"/>
+<Field __index="7" __schemaType="northeastType" __sourcePath="{}/results/geometry/viewport/northeast/lat" containerType="SINGLE" label="lat" name="lat_1" type="number"/>
+<Field __index="8" __schemaType="northeastType" __sourcePath="{}/results/geometry/viewport/northeast/lng" containerType="SINGLE" label="lng" name="lng_1" type="number"/>
+<Field __index="9" __schemaType="southwestType" __sourcePath="{}/results/geometry/viewport/southwest/lat" containerType="SINGLE" label="lat" name="lat_2" type="number"/>
+<Field __index="10" __schemaType="southwestType" __sourcePath="{}/results/geometry/viewport/southwest/lng" containerType="SINGLE" label="lng" name="lng_2" type="number"/>
+<Field __index="11" __schemaType="resultsType" __sourcePath="{}/results/types" containerType="SINGLE" label="types" name="types" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/results" _dataStructure="OBJECT" _id="__id" _type="Output" id="77ddd20f-cf20-4422-b251-66a604d05fa0">
+<Record fieldDelimiter="," name="results" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/results/formatted_x005faddress" containerType="SINGLE" label="formatted_address" name="formatted_address" type="string"/>
+<Field __index="1" __sourcePath="{}/results/geometry/location/lat" containerType="SINGLE" label="lat" name="lat" type="string"/>
+<Field __index="2" __sourcePath="{}/results/geometry/location/lng" containerType="SINGLE" label="lng" name="lng" type="string"/>
+<Field __index="3" __sourcePath="{}/results/geometry/location_x005ftype" containerType="SINGLE" label="location_type" name="location_type" type="string"/>
+<Field __index="4" __sourcePath="{}/results/geometry/viewport/northeast/lat" containerType="SINGLE" label="lat" name="lat_1" type="number"/>
+<Field __index="5" __sourcePath="{}/results/geometry/viewport/northeast/lng" containerType="SINGLE" label="lng" name="lng_1" type="number"/>
+<Field __index="6" __sourcePath="{}/results/geometry/viewport/southwest/lat" containerType="SINGLE" label="lat" name="lat_2" type="number"/>
+<Field __index="7" __sourcePath="{}/results/geometry/viewport/southwest/lng" containerType="SINGLE" label="lng" name="lng_2" type="number"/>
+<Field __index="8" __sourcePath="{}/results/types" containerType="SINGLE" label="types" name="types" type="string"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" guiName="Foreach 'address_components' -&gt; 'address_x005fcomponents'" guiX="460" guiY="120" id="FOREACH_ADDRESS_COMPONENTS_ADDRESS_X005FCOMPONENTS" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+output.__parent_id = input.__parent_id;
+//END -> DO NOT REMOVE
+output.long_name = input.long_name;
+output.short_name = input.short_name;
+output.types = input.types;
+]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'results' -&gt; 'results'" guiX="460" guiY="20" id="FOREACH_RESULTS_RESULTS" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.formatted_address = input.formatted_address;
+output.lat = input.lat;
+output.lng = input.lng;
+output.location_type = input.location_type;
+output.lat_1 = input.lat_1;
+output.lng_1 = input.lng_1;
+output.lat_2 = input.lat_2;
+output.lng_2 = input.lng_2;
+output.types = input.types;
+]]></attr>
+</Node>
+<Node cacheInMemory="true" enabled="enabled" fileURL="dict:outputPayload" guiName="Map&lt;k,v&gt; WRITER" guiX="900" guiY="20" id="MAP_WRITER0" type="MAP_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<results xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
+  <clover:element clover:name="formatted_address">$0.formatted_address</clover:element>
+  <geometry>
+    <location>
+      <lat>$0.lat</lat>
+      <lng>$0.lng</lng>
+    </location>
+    <clover:element clover:name="location_type">$0.location_type</clover:element>
+    <viewport>
+      <northeast>
+        <lat>$0.lat_1</lat>
+        <lng>$0.lng_1</lng>
+      </northeast>
+      <southwest>
+        <lat>$0.lat_2</lat>
+        <lng>$0.lng_2</lng>
+      </southwest>
+    </viewport>
+  </geometry>
+  <types>$0.types</types>
+  <clover:collection clover:name="address_components">
+    <item clover:inPort="1" clover:key="__parent_id" clover:parentKey="__id">
+      <clover:element clover:name="long_name">$1.long_name</clover:element>
+      <clover:element clover:name="short_name">$1.short_name</clover:element>
+      <clover:collection clover:name="types">$1.types</clover:collection>
+    </item>
+  </clover:collection>
+</results>]]></attr>
+<attr name="_data_format"><![CDATA[MAP]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="XML READER" guiX="20" guiY="20" id="XML_READER0" type="XML_READER">
+<attr name="xmlSchemaURL"><![CDATA[./src/test/resources/results.xsd]]></attr>
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context outPort="0" sequenceField="__id" xpath="/results">
+  <Mapping cloverField="formatted_address" trim="true" xpath="formatted_address"/>
+  <Mapping cloverField="lat" trim="true" xpath="geometry/location/lat"/>
+  <Mapping cloverField="lng" trim="true" xpath="geometry/location/lng"/>
+  <Mapping cloverField="location_type" trim="true" xpath="geometry/location_type"/>
+  <Mapping cloverField="lat_1" trim="true" xpath="geometry/viewport/northeast/lat"/>
+  <Mapping cloverField="lng_1" trim="true" xpath="geometry/viewport/northeast/lng"/>
+  <Mapping cloverField="lat_2" trim="true" xpath="geometry/viewport/southwest/lat"/>
+  <Mapping cloverField="lng_2" trim="true" xpath="geometry/viewport/southwest/lng"/>
+  <Mapping cloverField="types" trim="true" xpath="types"/>
+  <Context generatedKey="__parent_id" outPort="1" parentKey="__id" sequenceField="__id" xpath="address_components">
+    <Mapping cloverField="long_name" trim="true" xpath="long_name"/>
+    <Mapping cloverField="short_name" trim="true" xpath="short_name"/>
+    <Mapping cloverField="types" trim="true" xpath="types"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__rootGlobalElementName"><![CDATA[results]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_ADDRESS_COMPONENTS_ADDRESS_X005FCOMPONENTS:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="edc4f6a6-b2a9-49dc-b367-a81c3ec2b657" outPort="Port 0 (out)" toNode="MAP_WRITER0:1"/>
+<Edge debugMode="true" fromNode="FOREACH_RESULTS_RESULTS:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="77ddd20f-cf20-4422-b251-66a604d05fa0" outPort="Port 0 (out)" toNode="MAP_WRITER0:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="ef5b1f5d-43da-43dc-aa65-a70cd55b0a12" outPort="Port 0 (out)" toNode="FOREACH_RESULTS_RESULTS:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="a1901df2-f360-43bd-88e0-b0f790361cb8" outPort="Port 1 (out)" toNode="FOREACH_ADDRESS_COMPONENTS_ADDRESS_X005FCOMPONENTS:0"/>
+</Phase>
+</Graph>

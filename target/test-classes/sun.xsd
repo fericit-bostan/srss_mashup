@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="sun" type="sunType"/>
+  <xs:complexType name="dateType">
+    <xs:sequence>
+      <xs:element type="xs:byte" name="day"/>
+      <xs:element type="xs:byte" name="month"/>
+      <xs:element type="xs:byte" name="timezone"/>
+      <xs:element type="xs:byte" name="dst"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="twilightType">
+    <xs:sequence>
+      <xs:element name="civil">
+        <xs:simpleType>
+          <xs:restriction base="xs:time">
+            <xs:enumeration value="07:57:47"/>
+            <xs:enumeration value="18:48:50"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="nautical">
+        <xs:simpleType>
+          <xs:restriction base="xs:time">
+            <xs:enumeration value="07:25:39"/>
+            <xs:enumeration value="19:20:59"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="astronomical">
+        <xs:simpleType>
+          <xs:restriction base="xs:time">
+            <xs:enumeration value="06:54:16"/>
+            <xs:enumeration value="19:52:22"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="morningType">
+    <xs:sequence>
+      <xs:element type="xs:time" name="sunrise"/>
+      <xs:element type="twilightType" name="twilight"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="locationType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="latitude"/>
+      <xs:element type="xs:float" name="longitude"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="eveningType">
+    <xs:sequence>
+      <xs:element type="xs:time" name="sunset"/>
+      <xs:element type="twilightType" name="twilight"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sunType">
+    <xs:sequence>
+      <xs:element type="xs:float" name="version"/>
+      <xs:element type="locationType" name="location"/>
+      <xs:element type="dateType" name="date"/>
+      <xs:element type="morningType" name="morning"/>
+      <xs:element type="eveningType" name="evening"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
