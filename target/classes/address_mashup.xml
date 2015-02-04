@@ -24,7 +24,10 @@ http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schem
         </http:request>
         <json:json-to-xml-transformer doc:name="JSON to XML"/>
         <data-mapper:transform config-ref="Gmap_XML_to_Map" doc:name="Gmap XML to Map"/>
-        <component class="com.sample.BindGMapResults" doc:name="Bind Gmap Results"/>
+        <set-session-variable variableName="requested_address" value="#[payload.formatted_address]" doc:name="Set Requested Address"/>
+        <set-session-variable variableName="latitude" value="#[payload.geometry.location.lat]" doc:name="Set Latitude"/>
+        <set-session-variable variableName="longitude" value="#[payload.geometry.location.lng]" doc:name="Set Longitude"/>
+        <set-session-variable variableName="location" value="#[payload.geometry.location.lng],#[payload.geometry.location.lat]" doc:name="Set Location"/>
         <http:request config-ref="Earthtools_API" path="/sun/#[sessionVars.latitude]/#[sessionVars.longitude]/#[server.dateTime.dayOfMonth]/#[server.dateTime.month]/99/0" method="GET" doc:name="Sunrise Sunset API"/>
         <data-mapper:transform config-ref="earthtools_XML_to_Map" doc:name="earthtools XML to Map"/>
         <component class="com.sample.UpdatePayload" doc:name="Update Payload"/>
